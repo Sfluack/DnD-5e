@@ -1,1 +1,38 @@
+:root {
+    --gradient: #00BEEF;
+    --bright-blue: #00BEEF;
+    --off-white: #FAF9F6;
+    --off-black: #28282B;
+    --dark-grey: #A9A9A9;
+    --medium-grey: #7D7F7C;
+    --light-grey: #D3D3D3;
+}
 
+* {
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+body {
+    background-color: var(--off-white);
+    color: var(--off-black);
+}
+
+
+body > header {
+
+}
+
+
+.dark-mode {
+    background-color: var(--dark-grey);
+    color: var(--light-grey);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--dark-grey);
+        border-color: var(--medium-grey);
+        color: var(--light-grey);
+    }
+}
