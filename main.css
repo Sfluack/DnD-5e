@@ -26,6 +26,7 @@ body > header {
 
 .dark-mode {
     background-color: var(--dark-grey);
+    border-color: var(--medium-grey);
     color: var(--light-grey);
 }
 
