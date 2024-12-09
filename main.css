@@ -1,11 +1,22 @@
 :root {
-    --gradient: #00BEEF;
+    --gradient1: linear-gradient(207deg, #e00bd8 25%, #00d39a 100%);
+    --gradient2: linear-gradient(to bottom, #E00BD8, #00D39A) 1 100%;
     --bright-blue: #00BEEF;
     --off-white: #FAF9F6;
-    --off-black: #28282B;
-    --dark-grey: #A9A9A9;
-    --medium-grey: #7D7F7C;
-    --light-grey: #D3D3D3;
+
+
+    
+    --blue-text: #4AD5D9;
+
+    --global-primary-color: #ffffff;
+    --global-secondary-color: #b2ddf1;
+    --accent-text: #34fdfd;
+
+    --light-grey: #eeeeee;
+    --med-light-grey: #BBBBBB;
+    --medium-grey: #888888;
+    --med-dark-grey: #444444;
+    --dark-grey: #282828;    
 }
 
 * {
@@ -23,13 +34,18 @@ body > header {
 
 }
 
-
 .dark-mode {
     background-color: var(--dark-grey);
     border-color: var(--medium-grey);
     color: var(--light-grey);
+
+    button {
+        background-color: #000000;
+    }
 }
 
+
+/*  -- Dark Mode based on browser settings
 @media (prefers-color-scheme: dark) {
     body {
         background-color: var(--dark-grey);
@@ -37,3 +53,4 @@ body > header {
         color: var(--light-grey);
     }
 }
+*/

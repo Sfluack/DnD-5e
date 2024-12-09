@@ -1,5 +1,5 @@
-const themeRadio = document.querySelector('input[name="theme-selector"]');
+const darkCheck = document.getElementById("dark-theme-check");
 
-themeRadio.addEventListener("change", (e) => {
-    document.getElementsByTagName("body").classList.toggle("dark-mode");
+darkCheck.addEventListener("change", () => {
+    (darkCheck.checked) ? document.body.classList.add("dark-mode") : document.body.classList.remove("dark-mode")
 });
