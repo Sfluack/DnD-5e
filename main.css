@@ -4,8 +4,6 @@
     --bright-blue: #00BEEF;
     --off-white: #FAF9F6;
 
-
-    
     --blue-text: #4AD5D9;
 
     --global-primary-color: #ffffff;
@@ -29,11 +27,6 @@ body {
     color: var(--off-black);
 }
 
-
-body > header {
-
-}
-
 .dark-mode {
     background-color: var(--dark-grey);
     border-color: var(--medium-grey);
@@ -43,14 +36,3 @@ body > header {
         background-color: #000000;
     }
 }
-
-
-/*  -- Dark Mode based on browser settings
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--dark-grey);
-        border-color: var(--medium-grey);
-        color: var(--light-grey);
-    }
-}
-*/
