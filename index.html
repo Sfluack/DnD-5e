@@ -4,18 +4,42 @@
     <title>Sfluack's D&amp;D Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./main.css">
+    <script src="https://kit.fontawesome.com/5eb7bd78ca.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
-      <div id="window-toggler">
-        <button>Character Sheet</button>
-        <button>Notebook</button>
-        <button>Spell Cards</button>
-        <button>Book Viewer</button>
-        <button>Settings</button>
-        <input id="dark-theme-check" type="checkbox"><label for="dark-theme-check"> Dark Mode</label>
-      </div>
-    </header>
+    <!-- Window Toggler -->
+    <div id="window-toggler" class="window">
+      <header>
+        <h4>Window Toggler</h4>
+        <i title="Collapse" class="fa-solid fa-down-left-and-up-right-to-center collapse-btn float-right"></i>
+        <!-- <i title="Expand" class="fa-solid fa-up-right-and-down-left-from-center float-right"></i> -->
+      </header>
+      <section class="window-body">
+        <button title="Character Sheet"><i class="fa-solid fa-person"></i></button>
+        <button title="Notes"><i class="fa-solid fa-pen-to-square"></i></i></button>
+        <button title="Spells"><i class="fa-solid fa-list-ol"></i></button>
+        <button title="Book Viewer"><i class="fa-solid fa-book-open"></i></button>
+        <button title="Dice Tray"><i class="fa-solid fa-dice"></i></button>
+        <button title="Settings"><i class="fa-solid fa-gear"></i></button>
+      </section>
+    </div>
+  
+    <!-- Settings Menu (normally hidden) -->
+    <div id="settings-menu" class="window">
+      <header>
+        <h4>Settings</h4>
+        <i title="Close" class="fa-solid fa-xmark close-btn float-right"></i>
+        <i title="Collapse" class="fa-solid fa-down-left-and-up-right-to-center collapse-btn float-right"></i>
+        <!-- <i title="Expand" class="fa-solid fa-up-right-and-down-left-from-center float-right"></i> -->
+      </header>
+      <section class="window-body">
+        <label>Dark Mode
+          <label class="toggle-switch rounded" role="button">
+            <input id="dark-theme-check" type="checkbox"><span class="slider"></span>
+          </label>
+        </label>
+      </section>
+    </div>
   </body>
   <script type="text/javascript" src="./main.js"></script>
 </html>

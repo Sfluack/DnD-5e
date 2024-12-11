@@ -3,7 +3,7 @@
     --gradient2: linear-gradient(to bottom, #E00BD8, #00D39A) 1 100%;
     --bright-blue: #00BEEF;
     --off-white: #FAF9F6;
-
+    --off-black: #0d0d0d;
     --blue-text: #4AD5D9;
 
     --global-primary-color: #ffffff;
@@ -11,15 +11,23 @@
     --accent-text: #34fdfd;
 
     --light-grey: #eeeeee;
-    --med-light-grey: #BBBBBB;
+    --med-light-grey: #C7C7C7;
     --medium-grey: #888888;
-    --med-dark-grey: #444444;
-    --dark-grey: #282828;    
+    --med-dark-grey: #3C3C3C;
+    --dark-grey: #282828;  
 }
 
 * {
     box-sizing: border-box;
     border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 body {
@@ -27,12 +35,221 @@ body {
     color: var(--off-black);
 }
 
+button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    border: 1px solid var(--med-dark-grey);
+    border-radius: 0;
+}
+
+button:hover,
+button:hover i {
+    background-color: var(--med-dark-grey);
+    color: gold;
+}
+
+fieldset {
+    display: inline;
+    padding: 5px;
+}
+
 .dark-mode {
     background-color: var(--dark-grey);
-    border-color: var(--medium-grey);
+    border-color: var(--med-dark-grey);
     color: var(--light-grey);
 
-    button {
-        background-color: #000000;
+    * {
+        background-color: var(--dark-grey);
+        border-color: var(--med-dark-grey);
+        color: var(--light-grey);
     }
+
+    button,
+    i {
+        background-color: var(--med-dark-grey);
+        color: var(--med-light-grey);
+    }
+
+    button:hover,
+    button:hover i {
+        color: var(--bright-blue);
+    }
+}
+
+.window {
+    position: absolute;
+    border: 1px solid;
+    background-color: inherit;
+    min-width: 100px;
+}
+
+.window h4 {
+    display: inline-block;
+    margin: 0;
+}
+
+.window header {
+    border-bottom: 1px solid;
+    user-select: none;
+}
+
+.window header i {
+    padding: 0 4px;
+}
+
+.window header,
+.window-body {
+    padding: 5px;
+}
+
+#settings-menu {
+    z-index: 40;
+    top: 0;
+    left: calc((100vw - 350px) /2);
+    width: 350px;
+    user-select: none;
+}
+
+
+.character-sheet {
+    fieldset img {
+        width: 100px;
+        height: 100px;
+    }
+    fieldset button {
+        width: 1em;
+        height: 1em;
+        line-height: 1em;
+        font-size: 1rem;
+    }
+
+    fieldset div {
+        display: inline-block;
+        border: 1px solid;
+        padding: 2px;
+    }
+
+    fieldset table {
+        vertical-align: top;
+        display: inline-block;
+        border-collapse: separate;
+        border-spacing: 3px;
+    }
+
+    fieldset td {
+        font-size: 12px;
+    }
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.rounded .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.2s;
+    border-radius: 1em;
+}
+
+.rounded .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.2s;
+    border-radius: 1em;
+}
+
+.rounded input:checked+.slider {
+    background-color: #4caf50;
+    background-color: var(--bright-blue);
+}
+
+.rounded input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+.hidden {
+    display: none;
+}
+
+.indent {
+    text-indent: 1rem;
+}
+
+.no-list-style {
+    list-style-type: none;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-both::before {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.clear-both::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+label,
+legend,
+.sm-font {
+    font-size: 0.8rem;
+}
+
+.md-font {
+    font-size: 1.2rem;
+}
+
+.lg-font {
+    font-size: 1.4rem;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
 }

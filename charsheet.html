@@ -1,9 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Sfluack's D&amp;D Home</title>
+        <title>Character Sheet - D&amp;D Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./main.css">
-    <script type="text/javascript" src="./main.js"></script>
+        <link rel="stylesheet" href="./main.css">
+        <script src="https://kit.fontawesome.com/5eb7bd78ca.js" crossorigin="anonymous"></script>
     </head>
+    <body><!-- Window Toggler -->
+        <div class="character-sheet window">
+            <header>
+                <h4>Character Sheet</h4>
+                <i title="Close" class="fa-solid fa-xmark close-btn float-right"></i>
+                <i title="Collapse" class="fa-solid fa-down-left-and-up-right-to-center collapse-btn float-right"></i>
+                <!-- <i title="Expand" class="fa-solid fa-up-right-and-down-left-from-center float-right"></i> -->
+            </header>
+            <section class="window-body">
+                <!-- Name Section -->
+                <section class="body-section">
+                    <fieldset>
+                        <legend>Basics</legend>
+                        <table>
+                            <tr>
+                                <td><label for="cName">Name</label></td>
+                                <td><input id="cName" type="text" placeholder="Crenendor the Rabble-Rouser"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="cSpecies">Species</label></td>
+                                <td><input id="cSpecies" type="text" placeholder="Dwarf (Mountain)"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="cDiety">Deity</label></td>
+                                <td><input id="cDiety" type="text" placeholder="Torm"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="cAlign">Alignment</label></td>
+                                <td><input id="cAlign" type="text" placeholder="Lawful Good"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="cBack">Bakcground</label></td>
+                                <td><input id="cBack" type="text" placeholder="Noble"></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </section>
+
+                <!-- Classes & Levels -->
+                <section class="body-section">
+                    <fieldset class="class-levels">
+                        <legend>Classes & Levels</legend>
+                        <select id="class-0">
+                            <option class="bold" value="0">Class</option>
+                            <option value="Artificer">Artificer</option>
+                            <option value="Barbarian">Barbarian</option>
+                            <option value="Bard">Bard</option>
+                            <option value="Cleric">Cleric</option>
+                            <option value="Druid">Druid</option>
+                            <option value="Fighter">Fighter</option>
+                            <option value="Monk">Monk</option>
+                            <option value="Paladin">Paladin</option>
+                            <option value="Ranger">Ranger</option>
+                            <option value="Rogue">Rogue</option>
+                            <option value="Sorcerer">Sorcerer</option>
+                            <option value="Warlock">Warlock</option>
+                            <option value="Wizard">Wizard</option>
+                        </select>
+                        <select id="level-0">
+                            <option class="bold" value="0">Level</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                        </select>
+                        <button title="Add class">+</button>
+                        <button title="Delete class">-</button>
+                    </fieldset>
+                </section>
+
+
+                <!-- Ability Score Section -->
+                <section class="body-section">
+                    <fieldset>
+                        <legend>Ability Scores</legend>
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Con</th>
+                                <th>Str</th>
+                                <th>Dex</th>
+                                <th>Int</th>
+                                <th>Wis</th>
+                                <th>Cha</th>
+                            </tr>
+                            <tr>
+                                <td class="bold">Score</td>
+                                <td><input type="number" value="20" min="1" max="40"></td>
+                                <td><input type="number" value="20" min="1" max="40"></td>
+                                <td><input type="number" value="20" min="1" max="40"></td>
+                                <td><input type="number" value="20" min="1" max="40"></td>
+                                <td><input type="number" value="20" min="1" max="40"></td>
+                                <td><input type="number" value="20" min="1" max="40"></td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Mod</td>
+                                <td><input type="number" value="2" min="-5" max="10"></td>
+                                <td><input type="number" value="2" min="-5" max="10"></td>
+                                <td><input type="number" value="2" min="-5" max="10"></td>
+                                <td><input type="number" value="2" min="-5" max="10"></td>
+                                <td><input type="number" value="2" min="-5" max="10"></td>
+                                <td><input type="number" value="2" min="-5" max="10"></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </section>
+
+                <!-- Health & Hit Dice Section -->
+                <section class="body-section">
+                    <fieldset>
+                        <legend>Health & Hit Dice</legend>
+                        <table>
+                            <tr><th colspan="2">Hit Points</th></tr>
+                            <tr>
+                                <td>Curr</td>
+                                <td><input type="number" value="9" min="1" max="500"></td>
+                            </tr>
+                            <tr>
+                                <td>Max</td>
+                                <td><input type="number" value="9" min="1" max="500"></td>
+                            </tr>
+                            <tr>
+                                <td>Temp</td>
+                                <td><input type="number" value="9" min="1" max="500"></td>
+                            </tr>
+                        </table>
+                        <table class="text-center">
+                            <tr><th colspan="4">Hit Dice</th></tr>
+                            <tr><td></td><td>Used</td><td>/</td><td>Max</td></tr>
+                            <tr>
+                                <td>1d8</td>
+                                <td><input type="number" value="1" min="1" max="20"></td>
+                                <td>/</td>
+                                <td><input type="number" value="1" min="1" max="20"></td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr><th colspan="2">Death Saves</th></tr>
+                            <tr>
+                                <td>Pass</td>
+                                <td><input type="number" value="1" min="1" max="3"></td>
+                            </tr>
+                            <tr>
+                                <td>Fail</td>
+                                <td><input type="number" value="1" min="1" max="3"></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </section>
+        
+                <!-- Skills Section -->
+        
+        
+        
+            </section>
+        </div>
+    </body>
+    <script type="text/javascript" src="./main.js"></script>
 <html>
