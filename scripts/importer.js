@@ -1,1 +1,1 @@
-import { Window } from 'https://raw.githubusercontent.com/Sfluack/DnD-5e/refs/heads/site/scripts/window.js';
+import { Window } from 'https://cdn.jsdelivr.net/gh/Sfluack/DnD-5e@site/scripts/window.js';
