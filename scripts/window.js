@@ -1,4 +1,4 @@
-export default class Window {
+export class Window {
     constructor(close = true) {
         this.closeable = close;
 
