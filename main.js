@@ -1,57 +1,3 @@
-const windows = document.querySelectorAll(".window");
-const collapseBtns = document.getElementsByClassName("collapse-btn");
-const closeBtns = document.getElementsByClassName("close-btn");
-const darkToggle = document.getElementById("dark-theme-check");
-
-
-// Window eventListeners
-if (windows) {
-    windows.forEach(wnd => {
-        const headers = wnd.querySelectorAll("header");
-        if (headers) {
-            headers.forEach(header => {
-                // Make Windows Draggable
-                header.addEventListener("click", (e) => {
-                    const dragElement = () => {
-// RESUME HERE -- making element draggable!
-                    };
-                });
-            });
-        };
-    });
-};
-
-// Collapse Button eventListeners
-if(collapseBtns) {
-    Object.keys(collapseBtns).forEach(btn => {
-        collapseBtns[btn].addEventListener("click", (e) => {
-            const parentWindow = collapseBtns[btn].parentElement.parentElement;
-            parentWindow.getElementsByClassName("window-body")[0].classList.toggle("hidden");
-        });
-    });
-};
-
-// Close Button eventListeners
-if(closeBtns) {
-    Object.keys(closeBtns).forEach(btn => {
-        closeBtns[btn].addEventListener("click", (e) => {
-            const parentWindow = closeBtns[btn].parentElement.parentElement;
-            parentWindow.classList.toggle("hidden");
-        });
-    });
-};
-
-// Dark-Mode Toggle Button eventListener
-if (darkToggle) {
-    darkToggle.addEventListener("change", () => {
-        if (darkToggle.checked) {
-            document.body.classList.add("dark-mode");
-        } else {
-            document.body.classList.remove("dark-mode");
-        }
-    });
-};
-
 class Window {
     constructor(close = true) {
         this.closeable = close;
@@ -102,6 +48,17 @@ class WindowToggler extends Window {
         this.charSheetBtn.title = "Character Sheet";
         this.charSheetBtn.role = "button";
         this.charSheetBtn.classList.add("fa-solid", "fa-person");
+        this.charSheetBtn.addEventListener("click", () => {
+            const cSheets = document.querySelectorAll(".character-sheet");
+            if(cSheets.length < 1) {
+// CREATE character sheet
+            } else {
+                cSheets.forEach(cSheet => {
+                    const sBody = cSheet.getElementsByClassName("window-body");
+                    sBody[0].classList.remove("hidden");
+                });
+            };
+        });
 
         // Create the Notes Button
         this.notesBtn = document.createElement("i");
@@ -166,4 +123,72 @@ class CharacterSheet extends Window {
         this.body.appendChild(this.nameLbl);
         this.body.appendChild(this.classLbl);
     }
+};
+
+// Document Elements
+const windows = document.querySelectorAll(".window");
+const collapseBtns = document.getElementsByClassName("collapse-btn");
+const closeBtns = document.getElementsByClassName("close-btn");
+const darkToggle = document.getElementById("dark-theme-check");
+
+// Window eventListeners
+if (windows) {
+    windows.forEach(wnd => {
+        const headers = wnd.querySelectorAll("header");
+        if (headers) {
+            headers.forEach(header => {
+                // Make Windows Draggable
+                header.addEventListener("click", (e) => {
+                    const dragElement = () => {
+// RESUME HERE -- making element draggable!
+                    };
+                });
+            });
+        };
+    });
+};
+
+// Collapse Button eventListeners
+if(collapseBtns) {
+    Object.keys(collapseBtns).forEach(btn => {
+        collapseBtns[btn].addEventListener("click", (e) => {
+            const parentWindow = collapseBtns[btn].parentElement.parentElement;
+            if(!parentWindow.classList.contains("hidden") && (parentWindow.style.width || parentWindow.style.height)) {
+                const preMinDims = [];
+                preMinDims.push(parentWindow.style.width);
+                preMinDims.push(parentWindow.style.height);
+                sessionStorage.setItem(parentWindow.id + "-dimensions", JSON.stringify(preMinDims));
+                parentWindow.removeAttribute("style");
+            } else {
+                const preMinDims = JSON.parse(sessionStorage.getItem(parentWindow.id + "-dimensions"));
+                if(preMinDims) {
+                    parentWindow.style.width = preMinDims[0];
+                    parentWindow.style.height = preMinDims[1];
+                    sessionStorage.removeItem(parentWindow.id + "-dimensions");
+                }
+            }
+            parentWindow.getElementsByClassName("window-body")[0].classList.toggle("hidden");
+        });
+    });
+};
+
+// Close Button eventListeners
+if(closeBtns) {
+    Object.keys(closeBtns).forEach(btn => {
+        closeBtns[btn].addEventListener("click", (e) => {
+            const parentWindow = closeBtns[btn].parentElement.parentElement;
+            parentWindow.classList.toggle("hidden");
+        });
+    });
+};
+
+// Dark-Mode Toggle Button eventListener
+if (darkToggle) {
+    darkToggle.addEventListener("change", () => {
+        if (darkToggle.checked) {
+            document.body.classList.add("dark-mode");
+        } else {
+            document.body.classList.remove("dark-mode");
+        }
+    });
 };
