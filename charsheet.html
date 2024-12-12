@@ -6,49 +6,49 @@
         <link rel="stylesheet" href="./main.css">
         <script src="https://kit.fontawesome.com/5eb7bd78ca.js" crossorigin="anonymous"></script>
     </head>
-    <body><!-- Window Toggler -->
+    <body>
+        <!-- Character Sheet 0 -->
         <div class="character-sheet window">
             <header>
                 <h4>Character Sheet</h4>
                 <i title="Close" class="fa-solid fa-xmark close-btn float-right"></i>
                 <i title="Collapse" class="fa-solid fa-down-left-and-up-right-to-center collapse-btn float-right"></i>
                 <!-- <i title="Expand" class="fa-solid fa-up-right-and-down-left-from-center float-right"></i> -->
+                <i title="Save Character" class="fa-solid fa-floppy-disk save-btn float-right"></i>
+                <i title="Unlocked: Click to Lock" class="fa-solid fa-lock-open lock-btn float-right"></i>
+                <!-- <i title="Locked: Click to Unlock" class="fa-solid fa-lock lock-btn float-right"></i> -->
             </header>
             <section class="window-body">
-                <!-- Name Section -->
-                <section class="body-section">
+                <!-- Basics Section -->
+                <section class="body-section grid grid-cols-auto-2 grid-gap-3px">
                     <fieldset>
                         <legend>Basics</legend>
                         <table>
                             <tr>
-                                <td><label for="cName">Name</label></td>
-                                <td><input id="cName" type="text" placeholder="Crenendor the Rabble-Rouser"></td>
+                                <td><label for="c-0-name">Name</label></td>
+                                <td><input id="c-0-name" type="text" placeholder="Crenendor Stronghammer"></td>
                             </tr>
                             <tr>
-                                <td><label for="cSpecies">Species</label></td>
-                                <td><input id="cSpecies" type="text" placeholder="Dwarf (Mountain)"></td>
+                                <td><label for="c-0-species">Species</label></td>
+                                <td><input id="c-0-species" type="text" placeholder="Dwarf (Mountain)"></td>
                             </tr>
                             <tr>
-                                <td><label for="cDiety">Deity</label></td>
-                                <td><input id="cDiety" type="text" placeholder="Torm"></td>
+                                <td><label for="c-0-deity">Deity</label></td>
+                                <td><input id="c-0-deity" type="text" placeholder="Torm"></td>
                             </tr>
                             <tr>
-                                <td><label for="cAlign">Alignment</label></td>
-                                <td><input id="cAlign" type="text" placeholder="Lawful Good"></td>
+                                <td><label for="c-0-alignment">Alignment</label></td>
+                                <td><input id="c-0-alignment" type="text" placeholder="Lawful Good"></td>
                             </tr>
                             <tr>
-                                <td><label for="cBack">Bakcground</label></td>
-                                <td><input id="cBack" type="text" placeholder="Noble"></td>
+                                <td><label for="c-0-background">Background</label></td>
+                                <td><input id="c-0-background" type="text" placeholder="Noble"></td>
                             </tr>
                         </table>
                     </fieldset>
-                </section>
-
-                <!-- Classes & Levels -->
-                <section class="body-section">
                     <fieldset class="class-levels">
                         <legend>Classes & Levels</legend>
-                        <select id="class-0">
+                        <select id="c-0-class-0">
                             <option class="bold" value="0">Class</option>
                             <option value="Artificer">Artificer</option>
                             <option value="Barbarian">Barbarian</option>
@@ -64,7 +64,7 @@
                             <option value="Warlock">Warlock</option>
                             <option value="Wizard">Wizard</option>
                         </select>
-                        <select id="level-0">
+                        <select id="c-0-level-0">
                             <option class="bold" value="0">Level</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -87,95 +87,307 @@
                             <option value="19">19</option>
                             <option value="20">20</option>
                         </select>
-                        <button title="Add class">+</button>
-                        <button title="Delete class">-</button>
+                        <button id="c-0-add-class" title="Add class">+</button>
+                        <button id="c-0-del-class" title="Delete class">-</button>
                     </fieldset>
                 </section>
 
-
                 <!-- Ability Score Section -->
-                <section class="body-section">
+                <section class="body-section grid grid-cols-auto-2 grid-gap-3px">
                     <fieldset>
                         <legend>Ability Scores</legend>
-                        <table>
-                            <tr>
-                                <th></th>
-                                <th>Con</th>
-                                <th>Str</th>
-                                <th>Dex</th>
-                                <th>Int</th>
-                                <th>Wis</th>
-                                <th>Cha</th>
+                        <table id="c-0-ability-scores">
+                            <tr class="text-center">
+                                <td></td>
+                                <td></td>
+                                <th>Mod</th>
+                                <th colspan="2" class="border-left">Save</th>
                             </tr>
-                            <tr>
-                                <td class="bold">Score</td>
-                                <td><input type="number" value="20" min="1" max="40"></td>
-                                <td><input type="number" value="20" min="1" max="40"></td>
-                                <td><input type="number" value="20" min="1" max="40"></td>
-                                <td><input type="number" value="20" min="1" max="40"></td>
-                                <td><input type="number" value="20" min="1" max="40"></td>
-                                <td><input type="number" value="20" min="1" max="40"></td>
+                            <tr class="text-center">
+                                <td>Con</td>
+                                <td><input id="c-0-con" type="number" placeholder="0" min="1" max="30"></td>
+                                <td id="c-0-con-mod">0</td>
+                                <td id="c-0-con-save" class="border-left">0</td>
+                                <td><input id="c-0-con-save-chk" type="checkbox"></td>
                             </tr>
-                            <tr>
-                                <td class="bold">Mod</td>
-                                <td><input type="number" value="2" min="-5" max="10"></td>
-                                <td><input type="number" value="2" min="-5" max="10"></td>
-                                <td><input type="number" value="2" min="-5" max="10"></td>
-                                <td><input type="number" value="2" min="-5" max="10"></td>
-                                <td><input type="number" value="2" min="-5" max="10"></td>
-                                <td><input type="number" value="2" min="-5" max="10"></td>
+                            <tr class="text-center">
+                                <td>Str</td>
+                                <td><input id="c-0-str" type="number" placeholder="0" min="1" max="30"></td>
+                                <td id="c-0-str-mod">0</td>
+                                <td id="c-0-str-save" class="border-left">0</td>
+                                <td><input id="c-0-str-save-chk" type="checkbox"></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>Dex</td>
+                                <td><input id="c-0-dex" type="number" placeholder="0" min="1" max="30"></td>
+                                <td id="c-0-dex-mod">0</td>
+                                <td id="c-0-dex-save" class="border-left">0</td>
+                                <td><input id="c-0-dex-save-chk" type="checkbox"></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>Int</td>
+                                <td><input id="c-0-int" type="number" placeholder="0" min="1" max="30"></td>
+                                <td id="c-0-int-mod">0</td>
+                                <td id="c-0-int-save" class="border-left">0</td>
+                                <td><input id="c-0-int-save-chk" type="checkbox"></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>Wis</td>
+                                <td><input id="c-0-wis" type="number" placeholder="0" min="1" max="30"></td>
+                                <td id="c-0-wis-mod">0</td>
+                                <td id="c-0-wis-save" class="border-left">0</td>
+                                <td><input id="c-0-wis-save-chk" type="checkbox"></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>Cha</td>
+                                <td><input id="c-0-cha" type="number" placeholder="0" min="1" max="30"></td>
+                                <td id="c-0-cha-mod">0</td>
+                                <td id="c-0-cha-save" class="border-left">0</td>
+                                <td><input id="c-0-cha-save-chk" type="checkbox"></td>
                             </tr>
                         </table>
                     </fieldset>
+                    <!-- Misc Section -->
+                    <div class="grid grid-rows-auto-2">
+                        <div class="grid grid-cols-auto-3 grid-gap-3px">
+                            <fieldset class="text-center">
+                                <legend>Speed</legend>
+                                <input id="c-0-speed" type="number" placeholder="30" min="0" max="90">ft
+                            </fieldset>
+                            <fieldset class="text-center">
+                                <legend>Inspiration</legend>
+                                <input id="c-0-insp" type="number" placeholder="0" min="0" max="99">
+                            </fieldset>
+                            <fieldset class="text-center">
+                                <legend>Proficiency</legend>
+                                +<span id="c-0-prof">0</span>
+                            </fieldset>
+                        </div>
+                        <div class="grid grid-cols-auto-3 grid-gap-3px">
+                            <fieldset class="text-center">
+                                <legend>Passive<br>Perception</legend>
+                                <span id="c-0-passperc">10</span>
+                            </fieldset>
+                            <fieldset class="text-center">
+                                <legend>Initiative</legend>
+                                +<span id="c-0-init">1</span>
+                            </fieldset>
+                            <fieldset class="text-center">
+                                <legend>Armor</legend>
+                                <input id="c-0-ac" type="number" placeholder="16" min="0" max="99">
+                            </fieldset>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Health & Hit Dice Section -->
-                <section class="body-section">
+                <section class="body-section grid grid-cols-auto-2 grid-gap-3px">
                     <fieldset>
                         <legend>Health & Hit Dice</legend>
                         <table>
                             <tr><th colspan="2">Hit Points</th></tr>
                             <tr>
                                 <td>Curr</td>
-                                <td><input type="number" value="9" min="1" max="500"></td>
+                                <td><input id="c-0-hp-curr" type="number" placeholder="1" min="0" max="500"></td>
                             </tr>
                             <tr>
                                 <td>Max</td>
-                                <td><input type="number" value="9" min="1" max="500"></td>
+                                <td><input id="c-0-hp-max" type="number" placeholder="1" min="1" max="500"></td>
                             </tr>
                             <tr>
                                 <td>Temp</td>
-                                <td><input type="number" value="9" min="1" max="500"></td>
+                                <td><input id="c-0-hp-temp" type="number" placeholder="0" min="0" max="500"></td>
                             </tr>
                         </table>
                         <table class="text-center">
                             <tr><th colspan="4">Hit Dice</th></tr>
-                            <tr><td></td><td>Used</td><td>/</td><td>Max</td></tr>
+                            <tr><td>Used</td><td>Die</td><td>/</td><td>Max</td></tr>
                             <tr>
-                                <td>1d8</td>
-                                <td><input type="number" value="1" min="1" max="20"></td>
+                                <td><input id="c-0-hit-die-0-used" type="number" value="1" min="1" max="20"></td>
+                                <td>
+                                    <select id="c-0-hit-die-0-type">
+                                        <option>d4</option>
+                                        <option>d6</option>
+                                        <option>d8</option>
+                                        <option>d10</option>
+                                        <option>d12</option>
+                                        <option>d20</option>
+                                    </select>
+                                </td>
                                 <td>/</td>
-                                <td><input type="number" value="1" min="1" max="20"></td>
+                                <td><input id="c-0-hit-die-0-max" type="number" value="1" min="1" max="20"></td>
                             </tr>
                         </table>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Death Saves</legend>
                         <table>
-                            <tr><th colspan="2">Death Saves</th></tr>
                             <tr>
                                 <td>Pass</td>
-                                <td><input type="number" value="1" min="1" max="3"></td>
+                                <td><input id="c-0-deatd-pass" type="number" placeholder="0" min="0" max="3"></td>
                             </tr>
                             <tr>
                                 <td>Fail</td>
-                                <td><input type="number" value="1" min="1" max="3"></td>
+                                <td><input id="c-0-deatd-fail" type="number" placeholder="0" min="0" max="3"></td>
                             </tr>
                         </table>
                     </fieldset>
                 </section>
-        
+
+                <!-- Attacks Section -->
+                <section class="body-section">
+                    <fieldset>
+                        <legend>Attacks <span class="italic">(1d20 + Hit, then Dmg + Bonus Dmg)</span></legend>
+                        <table>
+                            <tr class="v-align-bottom">
+                                <th>Name</th>
+                                <th>Hit</th>
+                                <th>Dmg Dice</th>
+                                <th>Bonus<br>Dmg</th>
+                                <th>Note</th>
+                            </tr>
+                            <tr>
+                                <td><input id="c-0-atk-0-name" type="text" placeholder="Longsword (+2)"></td>
+                                <td><input id="c-0-atk-0-hit" type="number" placeholder="2" min="0" max="30"></td>
+                                <td><input id="c-0-atk-0-dmgdice" type="text" placeholder="1d8 / 1d10"></td>
+                                <td><input id="c-0-atk-0-dmgbonus" type="number" placeholder="2" min="0" max="30"></td>
+                                <td><input id="c-0-atk-0-note" type="text" placeholder="Versatile"></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </section>
+
                 <!-- Skills Section -->
-        
-        
-        
+                <section class="body-section grid">
+                    <fieldset>
+                        <legend>Skills <span class="italic">(1d20 + Skill Bonus)</span></legend>
+                        <div  class="grid grid-cols-auto-2 grid-gap-3px sm-font">
+                            <div>
+                                <input id="c-0-acrobatics-chk" type="checkbox">
+                                <input id="c-0-acrobatics" type="number" placeholder="0" min="0" max="10">
+                                Acrobatics&nbsp;<span class="sm-font italic">(Dex)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-animal-chk" type="checkbox">
+                                <input id="c-0-animal" type="number" placeholder="0" min="0" max="10">
+                                Animal Handling <span class="italic">(Wis)</span>
+                            </div>
+                            <div>
+                                <td><input id="c-0-arcana-chk" type="checkbox"></td>
+                                <td><input id="c-0-arca" type="number" placeholder="0" min="0" max="10"></td>
+                                <td>Arcana <span class="italic">(Int)</span></td>
+                            </div>
+                            <div>
+                                <input id="c-0-atdletics-chk" type="checkbox">
+                                <input id="c-0-atdletics" type="number" placeholder="0" min="0" max="10">
+                                Atdletics <span class="italic">(Sdiv)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-deception-chk" type="checkbox">
+                                <input id="c-0-deception" type="number" placeholder="0" min="0" max="10">
+                                Deception <span class="italic">(Cha)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-history-chk" type="checkbox">
+                                <input id="c-0-history" type="number" placeholder="0" min="0" max="10">
+                                History <span class="italic">(Int)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-insight-chk" type="checkbox">
+                                <input id="c-0-insight" type="number" placeholder="0" min="0" max="10">
+                                Insight <span class="italic">(Wis)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-intimidation-chk" type="checkbox">
+                                <input id="c-0-intimidation" type="number" placeholder="0" min="0" max="10">
+                                Intimidation <span class="italic">(Cha)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-investigation-chk" type="checkbox">
+                                <input id="c-0-investigation" type="number" placeholder="0" min="0" max="10">
+                                Investigation <span class="italic">(Int)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-medicine-chk" type="checkbox">
+                                <input id="c-0-medicine" type="number" placeholder="0" min="0" max="10">
+                                Medicine <span class="italic">(Wis)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-nature-chk" type="checkbox">
+                                <input id="c-0-nature" type="number" placeholder="0" min="0" max="10">
+                                Nature <span class="italic">(Int)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-perception-chk" type="checkbox">
+                                <input id="c-0-perception" type="number" placeholder="0" min="0" max="10">
+                                Perception <span class="italic">(Wis)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-performance-chk" type="checkbox">
+                                <input id="c-0-performance" type="number" placeholder="0" min="0" max="10">
+                                Performance <span class="italic">(Cha)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-persuasion-chk" type="checkbox">
+                                <input id="c-0-persuasion" type="number" placeholder="0" min="0" max="10">
+                                Persuasion <span class="italic">(Cha)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-religion-chk" type="checkbox">
+                                <input id="c-0-religion" type="number" placeholder="0" min="0" max="10">
+                                Religion <span class="italic">(Wis)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-sleight-chk" type="checkbox">
+                                <input id="c-0-sleight" type="number" placeholder="0" min="0" max="10">
+                                Sleight of Hand <span class="italic">(Dex)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-stealtd-chk" type="checkbox">
+                                <input id="c-0-stealtd" type="number" placeholder="0" min="0" max="10">
+                                Stealtd <span class="italic">(Dex)</span>
+                            </div>
+                            <div>
+                                <input id="c-0-survival-chk" type="checkbox">
+                                <input id="c-0-survival" type="number" placeholder="0" min="0" max="10">
+                                Survival <span class="italic">(Wis)</span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </section>
+                
+                <!-- Extended Information Section -->
+                <section class="body-section">
+                    <fieldset>
+                        <legend>Traits & Details</legend>
+                        <table>
+                            <tr>
+                                <td>Trait</td>
+                                <td><input type="text" placeholder="Despite my noble birth, I do not place myself above other folk. We all have the same blood."></td>
+                            </tr>
+                            <tr>
+                                <td>Ideal</td>
+                                <td><input type="text" placeholder="Noble Obligation. It is my duty to protect and care for the people beneath me."></td>
+                            </tr>
+                            <tr>
+                                <td>Bond</td>
+                                <td><input type="text" placeholder="I will face any challenge to protect my family."></td>
+                            </tr>
+                            <tr>
+                                <td>Flaw</td>
+                                <td><input type="text" placeholder="I hide a truly scandalous secret that could ruin my family name forever."></td>
+                            </tr>
+                            <tr>
+                                <td>Details</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><textarea rows="10" cols="20" ></textarea></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </section>
+
             </section>
         </div>
     </body>

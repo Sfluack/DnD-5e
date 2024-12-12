@@ -146,7 +146,7 @@ class WindowToggler extends Window {
 class CharacterSheet extends Window {
     constructor() {
         super();
-        this.self.classList.add("char-sheet");
+        this.self.classList.add("character-sheet");
         this.heading.textContent = "Character Sheet";
 
         this.nameLbl = document.createElement("label");

@@ -6,15 +6,13 @@
     --off-black: #0d0d0d;
     --blue-text: #4AD5D9;
 
-    --global-primary-color: #ffffff;
-    --global-secondary-color: #b2ddf1;
     --accent-text: #34fdfd;
 
     --light-grey: #eeeeee;
     --med-light-grey: #C7C7C7;
     --medium-grey: #888888;
     --med-dark-grey: #3C3C3C;
-    --dark-grey: #282828;  
+    --dark-grey: #282828;
 }
 
 * {
@@ -113,33 +111,69 @@ fieldset {
 
 
 .character-sheet {
-    fieldset img {
+    max-width: 600px;
+    max-height: 100vh;
+    overflow-y: auto;
+
+   img {
         width: 100px;
         height: 100px;
     }
-    fieldset button {
+
+    button {
         width: 1em;
         height: 1em;
         line-height: 1em;
-        font-size: 1rem;
+        font-size: 1em;
     }
 
-    fieldset div {
-        display: inline-block;
-        border: 1px solid;
-        padding: 2px;
+    fieldset {
+        margin: 5px 0;
+    }
+
+    legend {
+        padding: 1px 4px;
+        background-color: var(--light-grey);
+        border: 1px solid var(--off-black);
+        border-radius: 5px;
+    }
+        
+    button {
+        width: 1em;
+        height: 1em;
+        line-height: 1em;
+        font-size: 1em;
     }
 
     fieldset table {
         vertical-align: top;
         display: inline-block;
         border-collapse: separate;
-        border-spacing: 3px;
+        border-spacing: 2px;
+    }
+
+    fieldset th {
+        font-size: 0.9rem;
     }
 
     fieldset td {
-        font-size: 12px;
+        font-size: 0.8rem;
     }
+
+    fieldset tr td:first-of-type {
+        text-align: right;
+        padding-right: 3px;
+    }
+
+    fieldset input {
+        max-width: 100px;
+    }
+}
+
+.character-sheet > header {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
 }
 
 .toggle-switch {
@@ -188,6 +222,28 @@ fieldset {
     transform: translateX(20px);
 }
 
+.grid {
+    display: grid;
+    align-content: space-between;
+}
+
+.grid-cols-auto-2 {
+    grid-template-columns: auto auto;
+}
+
+.grid-cols-auto-3 {
+    grid-template-columns: auto auto auto;
+}
+
+.grid-rows-auto-2 {
+    grid-template-rows: auto auto;
+}
+
+.grid-gap-3px {
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
 .hidden {
     display: none;
 }
@@ -223,7 +279,7 @@ fieldset {
 label,
 legend,
 .sm-font {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 .md-font {
@@ -252,4 +308,12 @@ legend,
 
 .text-center {
     text-align: center;
+}
+
+.v-align-bottom {
+    vertical-align: bottom;
+}
+
+.border-left {
+    border-left: 1px solid;
 }
